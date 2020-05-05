@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset=utf8">
+        <title>UIWebView-JSBridge</title>
+        <script type="text/JavaScript">
+            
+            function setupWebViewJavascriptBridge(callback) {
+                if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+                if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+                window.WVJBCallbacks = [callback];
+                var WVJBIframe = document.createElement('iframe');
+                WVJBIframe.style.display = 'none';
+                WVJBIframe.src = 'https://__bridge_loaded__';
+                document.documentElement.appendChild(WVJBIframe);
+                setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+            }
+       
+           var RMHApp = {};
+            
+            // 手动调用 setupWebViewJavascriptBridge 方法，触发 WebViewJavascriptBridge 的初始化
+            setupWebViewJavascriptBridge(
+            
+                                 function(bridge) {
+                                 /* Initialize your app here */
+                                 
+                                 var handlerNames = new Array("share", "jsToOc");
+                                 
+                                 for (var i in handlerNames) {
+                                    var handlerName = handlerNames[i];
+                                 
+                                    RMHApp[handlerName] = function (tempHandlerName) {
+                                        return function(data, callback) {
+                                 
+                                                    if (typeof data == "function") { // 意味着没有参数 data，只有一个参数 callback
+                                 
+                                                            bridge.callHandler(tempHandlerName, null, data);
+                                 
+                                                    } else if (callback == null) {  // 第二个参数 callback 为 null 或者只有第一个参数 data
+                                 
+                                                            bridge.callHandler(tempHandlerName, data);
+                                 
+                                                    } else {  // 两个参数都有
+                                 
+                                                            bridge.callHandler(tempHandlerName, data, callback);
+                                                    }
+                                               }
+                                    }(handlerName);
+                                 
+                                 };
+                                 // 给oc 调用
+                                 bridge.registerHandler("ocToJs", function(data, responseCallback) {
+                                                        ocToJs('ocToJs',data['content']);
+                                                        var params = {'title':'测试分享的回调','content':data['content'],'url':'http://www.baidu.com'};
+                                                        responseCallback(params);
+                                                        });
+                                 }
+            
+            );
+            
+        </script>
+    </head>
+    
+    <body>
+        
+        <script>
+                // JS调用OC的功能
+                function clickSucceed() {
+                    var params = {'title':'1111测试分享的标题','content':'测试分享的内容','url':'http://www.baidu.com', 'user':{'name':'Jack', 'age':'23'}};
+                    RMHApp.jsToOc(params);
+                }
+                
+                // JS调用OC的功能
+               function clickBtn() {
+                   clickSucceed();
+               }
+            
+                //! OC调用JS入口
+                function ocToJs(action, params) {
+                    document.getElementById("returnValue").innerHTML = action + '?' + params;
+                }
+        </script>
+        
+        <h3>JS调用OC</h3>
+        <button onclick = "clickBtn()" style = "font-size: 18px;">点击</button>
+        
+        <h3>分享回调</h3>
+        <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 50px;"> </div>
+        
+
+        
+    </body>
+    
+</html>
+

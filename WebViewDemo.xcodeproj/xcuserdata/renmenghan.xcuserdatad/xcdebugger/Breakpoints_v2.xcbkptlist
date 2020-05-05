@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "FE5CCDBE-44D1-4D33-9B1A-CE287901BAF3"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4278AF27-1939-48B6-839D-511E511C9E72"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebViewDemo/WebView/UIWebViewJSCore.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "-registerFunctionForContext:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0E33EBC5-F35C-410C-B031-1CADF71DE6A8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebViewDemo/WebView/UIWebViewJSExport.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "-jsToOc:params:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0E33EBC5-F35C-410C-B031-1CADF71DE6A8 - c39824e669f165f7"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[UIWebViewJSExport jsToOc:params:]"
+                  moduleName = "WebViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/renmenghan/Library/Autosave%20Information/WebViewDemo/WebViewDemo/WebView/UIWebViewJSExport.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "0E33EBC5-F35C-410C-B031-1CADF71DE6A8 - 292bf918732788ab"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__35-[UIWebViewJSExport jsToOc:params:]_block_invoke"
+                  moduleName = "WebViewDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/renmenghan/Library/Autosave%20Information/WebViewDemo/WebViewDemo/WebView/UIWebViewJSExport.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E3170BCA-592B-4A23-ABCB-5722B4B5FDD0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WebViewDemo/WebView/WebViewMessageHandler.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "-jsToOc:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

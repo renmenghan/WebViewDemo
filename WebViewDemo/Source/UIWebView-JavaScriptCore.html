@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset=utf8">
+        <title>UIWebView-JavaScriptCore</title>
+        <script language = "javascript">
+            
+            function loadURL(url) {
+                window.location.href = url;
+            }
+        
+            // JS调用OC
+            function jsToOc(action, params) {
+                var url = "jsToOc://" + action + "?" + params;
+                loadURL(url);
+            }
+            
+            // JS调用OC的功能
+            function clickBtn() {
+                var str = "click";
+                jsToOc(str,'param---点击按钮调用OC函数');
+            }
+            
+            // OC调用JS入口
+            function ocToJs(action, params) {
+                document.getElementById("returnValue").innerHTML = action + '----' + params;
+            }
+            
+        </script>
+    </head>
+    
+    <body>
+        <h3>JS调用OC</h3>
+        <button onclick = "clickBtn()" style = "font-size: 18px;">点击</button>
+        
+        <h3>分享回调</h3>
+        <div id = "returnValue" style = "font-size: 18px; border: 1px dotted; height: 50px;"> </div>
+    </body>
+    
+</html>
+
